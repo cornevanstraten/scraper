@@ -24,13 +24,17 @@ func main(){
 		fmt.Println("error", err.Error())
 	})
 
-	c.OnHTML(".text", func(h *colly.HTMLElement){
-		fmt.Println("Quote:", h.Text)
+	c.OnHTML(".quote", func(h *colly.HTMLElement){
+		div := h.DOM
+		quoteText := div.Find(".text").Text()
+		author := div.Find(".author").Text()
+
+		fmt.Println(quoteText, "–", author)
 	})
 
-	c.OnHTML(".author", func(h *colly.HTMLElement){
-		fmt.Println("Author:", h.Text)
-	})
+	// c.OnHTML(".author", func(h *colly.HTMLElement){
+	// 	fmt.Println("Author:", h.Text)
+	// })
 
-	c.Visit("http://quotes.toscrape.com/random")
+	c.Visit("http://quotes.toscrape.com")
 }
