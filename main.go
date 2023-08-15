@@ -32,9 +32,5 @@ func main(){
 		fmt.Println(quoteText, "–", author)
 	})
 
-	// c.OnHTML(".author", func(h *colly.HTMLElement){
-	// 	fmt.Println("Author:", h.Text)
-	// })
-
 	c.Visit("http://quotes.toscrape.com")
 }
