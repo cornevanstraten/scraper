@@ -29,7 +29,7 @@ func main(){
 		quoteText := div.Find(".text").Text()
 		author := div.Find(".author").Text()
 
-		fmt.Println(quoteText, "–", author)
+		fmt.Println(quoteText, "by", author)
 	})
 
 	c.Visit("http://quotes.toscrape.com")
